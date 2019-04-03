@@ -28,7 +28,7 @@
 </style>
 
 <script>
-import request from '@/utils/request'
+import { get } from '@/utils/request'
 import PersonalMsgSender from '@/components/wechat/PMSender'
 import dateUtil from '@/utils/datetime'
 export default {
@@ -44,7 +44,7 @@ export default {
   mounted: function() {
     const _this = this // 很重要！！
     new Promise((resolve, reject) => {
-      request({ url: '/user/list/' }).then(res => {
+      get('/user/list/').then(res => {
         _this.tableData = res.data
       }).catch(error => {
         reject(error)

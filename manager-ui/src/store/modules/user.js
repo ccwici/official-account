@@ -40,6 +40,7 @@ const user = {
       const username = userInfo.username.trim()
       return new Promise((resolve, reject) => {
         login(username, userInfo.password).then(res => {
+          debugger
           setToken(res.data)
           commit('SET_TOKEN', res.data)
           resolve()

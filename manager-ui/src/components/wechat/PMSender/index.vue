@@ -12,7 +12,7 @@
   </el-dialog>
 </template>
 <script>
-import request from '@/utils/request'
+import { post } from '@/utils/request'
 export default {
   props: {
     visible: {
@@ -43,7 +43,9 @@ export default {
     },
     sendMsg(_this) {
       new Promise((resolve, reject) => {
-        request({ url: '/message/publish/personal/', method: 'post', params: { openid: _this.msgSenderForm.openid, message: _this.msgSenderForm.message }}).then(res => {
+        const openid = _this.msgSenderForm.openid
+        const message = _this.msgSenderForm.message
+        post('/message/publish/personal/', { 'openid': openid, 'message': message }).then(res => {
           // 关闭弹窗，触发父组件修改visible值
           _this.$emit('update:visible', false)
           alert('success')

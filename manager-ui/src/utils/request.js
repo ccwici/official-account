@@ -4,15 +4,19 @@ import store from '../store'
 import { getToken } from '@/utils/auth'
 
 // 创建axios实例
-const service = axios.create({
-  baseURL: process.env.BASE_API, // api 的 base_url
-  timeout: 15000, // 请求超时时间
-  withCredentials: true
-})
+// const service = axios.create({
+//   baseURL: process.env.BASE_API, // api 的 base_url
+//   timeout: 15000, // 请求超时时间
+//   withCredentials: true
+// })
 
 // request拦截器
-service.interceptors.request.use(
+axios.interceptors.request.use(
   config => {
+    debugger
+    config.baseURL = process.env.BASE_API
+    config.timeout = 15000 // 请求超时时间
+    config.withCredentials = true
     if (getToken() !== '') {
       config.headers['X-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     }
@@ -26,7 +30,7 @@ service.interceptors.request.use(
 )
 
 // response 拦截器
-service.interceptors.response.use(
+axios.interceptors.response.use(
   response => {
     /**
      * code为非20000是抛错 可结合自己业务进行修改
@@ -38,7 +42,7 @@ service.interceptors.response.use(
         type: 'error',
         duration: 5 * 1000
       })
-
+      debugger
       // 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;
       if (res.status === 401 || res.status === 401 || res.status === 402) {
         MessageBox.confirm(
@@ -75,4 +79,42 @@ service.interceptors.response.use(
   }
 )
 
-export default service
+/**
+ * 封装get方法
+ * @param url
+ * @param params
+ * @returns {Promise}
+ */
+export function get(url, params = {}) {
+  return new Promise((resolve, reject) => {
+    axios.get(url, {
+      params: params
+    })
+      .then((response) => {
+        resolve(response)
+      })
+      .catch((err) => {
+        reject(err)
+      })
+  })
+}
+
+/**
+ * 封装post请求
+ * @param url
+ * @param data
+ * @returns {Promise}
+ */
+export function post(url, data = {}) {
+  return new Promise((resolve, reject) => {
+    axios.post(url, data)
+      .then((response) => {
+        resolve(response)
+      })
+      .catch((err) => {
+        reject(err)
+      })
+  })
+}
+
+export default post

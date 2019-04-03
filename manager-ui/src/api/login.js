@@ -1,27 +1,17 @@
-import request from '@/utils/request'
+import { post, get } from '@/utils/request'
 
 export function login(username, password) {
-  return request({
-    url: '/auth/login',
-    method: 'post',
-    data: {
-      username,
-      password
-    }
-  })
+  return post('/auth/login', {
+    'username': username,
+    'password': password
+  }
+  )
 }
 
 export function getInfo(token) {
-  return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
-  })
+  return get('/user/info', { 'x-token': token })
 }
 
 export function logout() {
-  return request({
-    url: '/user/logout',
-    method: 'post'
-  })
+  return get('/user/logout')
 }

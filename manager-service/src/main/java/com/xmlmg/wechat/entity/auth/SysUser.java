@@ -1,32 +1,46 @@
 package com.xmlmg.wechat.entity.auth;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.Date;
 import java.util.Set;
-
+@ApiModel(value="用户对象",description="系统用户")
 public class SysUser {
-
+    @ApiModelProperty(hidden = true)
     private String uid;
 
+    @ApiModelProperty(hidden = true)
     private String avatar;
 
+    @ApiModelProperty(name = "登录用户名", required = true)
     private String username;
 
+    @ApiModelProperty(hidden = true)
     private String nickname;
 
+    @ApiModelProperty(name = "密码", required = true)
     private String password;
 
+    @ApiModelProperty(hidden = true)
     private String phone;
 
+    @ApiModelProperty(hidden = true)
     private String mail;
 
+    @ApiModelProperty(hidden = true)
     private Integer state;
 
+    @ApiModelProperty(hidden = true)
     private Date addTime;
 
+    @ApiModelProperty(hidden = true)
     private Date upTime;
 
+    @ApiModelProperty(hidden = true)
     private Integer dept;
 
+    @ApiModelProperty(hidden = true)
     private Set<SysRole> roles;
 
     public String getUid() {
