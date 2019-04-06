@@ -13,8 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 14:29
  * @describe：
  * @version: 1.0
  */

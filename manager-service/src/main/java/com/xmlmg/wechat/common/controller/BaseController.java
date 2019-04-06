@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * T是vo类，ID是id/关键字的类型  S是服务类
- * @author: Wang Chen Chen
- * @Date: 2018/10/23 14:16
  * @describe：
  * @version: 1.0
  */

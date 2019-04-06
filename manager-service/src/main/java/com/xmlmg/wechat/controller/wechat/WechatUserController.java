@@ -21,7 +21,7 @@ public class WechatUserController extends WechatBaseController {
     private UserService userService;
 
     @GetMapping(value = "/user/list/")
-    public Result<WechatUserInfo> getUsersFromWeixin() throws IOException {
+    public Result getUsersFromWeixin() throws IOException {
         List<WechatUserInfo> users =  userService.getUserInfosFromWeinxin(AccessToken.getInstance(appId, appSecret).getAccessToken(), "");
         return Result.success(users);
     }

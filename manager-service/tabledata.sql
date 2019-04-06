@@ -196,3 +196,34 @@ CREATE TABLE `t_sys_user_role` (
 INSERT INTO `t_sys_user_role` VALUES ('3BDDD3B7B3AF4BA2A8FA0EFEB585597B', '3');
 INSERT INTO `t_sys_user_role` VALUES ('3BDDD3B7B3AF4BA2A8FA0EFEB585597B', '6');
 INSERT INTO `t_sys_user_role` VALUES ('3BDwqwqeqwc5448wqevcrA0EFEB585597B', '4');
+
+
+drop table if exists ita_operation_setting;
+
+drop table if exists ita_role_operation;
+
+create table ita_operation_setting
+(
+  id                   char(32)                       not null,
+  parent_id            char(32)                       null,
+  name                 varchar(50)                    not null,
+  remark               varchar(100)                   null,
+  api                  varchar(100)                   null,
+  personal char(1) not null default 0,
+  author varchar(30) not null default "",
+  constraint PK_ITA_OPERATION_SETTING primary key clustered (id)
+);
+
+create table ita_openid_operation
+(
+  openid               varchar(50)                    not null,
+  operation_id         char(32)                       not null,
+  constraint PK_ITA_OPENID_OPERATION primary key clustered (openid, operation_id)
+);
+
+create table ita_role_operation
+(
+  role_id              int(11)                        not null,
+  operation_id         char(32)                       not null,
+  constraint PK_ITA_ROLE_OPERATION primary key clustered (role_id, operation_id)
+);

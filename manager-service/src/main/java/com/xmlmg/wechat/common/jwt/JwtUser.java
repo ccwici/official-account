@@ -7,8 +7,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 14:08
  * @describe：
  * @version: 1.0
  */

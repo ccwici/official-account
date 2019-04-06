@@ -33,8 +33,6 @@ import java.util.Set;
  * [权限管理] 用户表 服务实现类
  * </p>
  *
- * @author wang chen chen
- * @since 2018-10-23
  */
 
 @Service

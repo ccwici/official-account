@@ -13,8 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * T：VO对象类型，ID：ID的类型，M：Mapper类
- * @author: Wang Chen Chen
- * @Date: 2018/10/23 16:13
  * @describe： 通用service实现类
  * @version: 1.0
  */

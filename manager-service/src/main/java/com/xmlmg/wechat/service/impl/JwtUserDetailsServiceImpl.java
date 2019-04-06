@@ -16,8 +16,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 14:15
  * @describe：
  * @version: 1.0
  */

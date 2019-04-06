@@ -2,8 +2,6 @@ package com.xmlmg.wechat.vo;
 
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 15:33
  * @describe：
  * @version: 1.0
  */

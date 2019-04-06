@@ -3,8 +3,6 @@ package com.xmlmg.wechat.common.mapper;
 import java.util.List;
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/26 9:42
  * @describe： 通用  Mapper 接口
  * @version: 1.0
  */

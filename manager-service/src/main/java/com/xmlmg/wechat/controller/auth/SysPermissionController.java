@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
  * [权限管理] 权限表 前端控制器
  * </p>
  *
- * @author wang chen chen
- * @since 2018-10-23
  */
 
 @Slf4j

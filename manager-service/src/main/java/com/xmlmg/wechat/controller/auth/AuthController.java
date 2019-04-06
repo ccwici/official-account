@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 10:49
  * @describe：
  * @version: 1.0
  */

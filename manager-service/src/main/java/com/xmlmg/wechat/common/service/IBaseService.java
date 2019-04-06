@@ -5,8 +5,6 @@ import com.xmlmg.wechat.vo.MyPage;
 
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/23 15:05
  * @describe：  通用service 接口
  * @version: 1.0
  */

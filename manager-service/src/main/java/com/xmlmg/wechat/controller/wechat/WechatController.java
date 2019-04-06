@@ -1,8 +1,8 @@
 package com.xmlmg.wechat.controller.wechat;
 
+import com.xmlmg.wechat.common.controller.WechatBaseController;
 import com.xmlmg.wechat.service.ChatService;
 import com.xmlmg.wechat.util.SignUtil;
-import com.xmlmg.wechat.common.controller.WechatBaseController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -11,8 +11,6 @@ import org.springframework.security.core.AuthenticationException;
  * [权限管理] 用户表 服务类
  * </p>
  *
- * @author wang chen chen
- * @since 2018-10-23
  */
 public interface ISysUserService extends IBaseService<SysUser, String> {
 

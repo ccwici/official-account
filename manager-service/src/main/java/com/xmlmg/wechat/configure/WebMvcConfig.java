@@ -25,8 +25,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 11:41
  * @describe：
  * @version: 1.0
  */
@@ -53,8 +51,6 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter implements WebMvc
 
     /**
      * @describe spring Security配置
-     * @date 2018/10/29
-     * @author Wang Chen Chen
      */
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {

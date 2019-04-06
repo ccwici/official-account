@@ -50,15 +50,11 @@ public class SysUserVo {
 
     /**
      * @describe 按钮
-     * @date 2018/10/29
-     * @author Wang Chen Chen
      */
     private Set<ButtonVo> buttons;
 
     /**
      * @describe 菜单
-     * @date 2018/10/29
-     * @author Wang Chen Chen
      */
     private Set<MenuVo> menus;
 

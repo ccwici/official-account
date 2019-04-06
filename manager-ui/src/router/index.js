@@ -41,21 +41,32 @@ export const constantRouterMap = [
     },
     children: [
       {
-        path: 'userlist',
+        path: '/wechat/userlist',
         component: () => import('@/views/wechat/userlist/index'),
         name: 'userlist',
         meta: {
           resources: 'userlist',
           title: '关注用户'
         }
-      },
+      }
+    ]
+  },
+  {
+    path: '/oponline',
+    component: Layout,
+    name: 'oponline',
+    meta: {
+      resources: 'oponline',
+      title: '在线运维'
+    },
+    children: [
       {
-        path: 'test',
-        component: () => import('@/views/wechat/test/index'),
-        name: 'test',
+        path: '/oponline/shortcutOp',
+        component: () => import('@/views/oponline/shortcutOp/index'),
+        name: 'shortcutOp',
         meta: {
-          resources: 'test',
-          title: '测似乎'
+          resources: 'shortcutOp',
+          title: '在线运维'
         }
       }
     ]

@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @author: Wang Chen Chen
- * @Date: 2018/10/29 10:48
  * @describe：
  * @version: 1.0
  */
