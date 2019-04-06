@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xmlmg.wechat.mapper.ita.OperationSettingMapper">
+  <resultMap id="BaseResultMap" type="com.xmlmg.wechat.entity.ita.OperationSetting">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="parent_id" jdbcType="CHAR" property="parentId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="api" jdbcType="VARCHAR" property="api" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, parent_id, name, remark, api
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from ita_operation_setting
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from ita_operation_setting
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.xmlmg.wechat.entity.ita.OperationSetting">
+    insert into ita_operation_setting (id, parent_id,
+      name, remark, api)
+    values (#{id,jdbcType=CHAR}, #{parentId,jdbcType=CHAR},
+      #{name,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, #{api,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xmlmg.wechat.entity.ita.OperationSetting">
+    insert into ita_operation_setting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="parentId != null">
+        parent_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="api != null">
+        api,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="parentId != null">
+        #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="api != null">
+        #{api,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xmlmg.wechat.entity.ita.OperationSetting">
+    update ita_operation_setting
+    <set>
+      <if test="parentId != null">
+        parent_id = #{parentId,jdbcType=CHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="api != null">
+        api = #{api,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xmlmg.wechat.entity.ita.OperationSetting">
+    update ita_operation_setting
+    set parent_id = #{parentId,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      api = #{api,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <select id="queryoperationSettingsByOpenId" resultType="OperationSetting">
+    select <include refid="Base_Column_List" />
+    from ita_operation_setting a, ita_openid_role b, ita_role_permission c
+    where a.id = c.operation_id and b.role_id = c.role_id and b.open_id=#{openid}
+  </select>
+
+  <!-- 入口操作列表 -->
+  <select id="queryEntranceOperationList" resultType="OperationSetting">
+    select <include refid="Base_Column_List" />
+    from ita_operation_setting
+    where parent_id = '0'
+  </select>
+
+  <!-- 子一级操作列表 -->
+  <select id="queryChildOperationList" resultType="OperationSetting">
+    select <include refid="Base_Column_List" />
+    from ita_operation_setting
+    where parent_id = #{parentId} and (personal = 0 or personal = 1 and author=#{author})
+  </select>
+</mapper>
