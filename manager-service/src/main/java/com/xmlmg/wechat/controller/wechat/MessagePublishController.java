@@ -33,4 +33,10 @@ public class MessagePublishController extends WechatBaseController {
             return Result.error500(errorMessage.getErrmsg(), errorMessage.getErrmsg());
         }
     }
+
+    @PostMapping("/news/")
+    public Result sendNewsMessage() {
+        // TODO
+        return null;
+    }
 }
