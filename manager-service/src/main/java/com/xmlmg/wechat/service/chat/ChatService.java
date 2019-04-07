@@ -46,7 +46,7 @@ public class ChatService {
 		// 其他
 		AbstractMessageHandler messageHandler = handlerMap.get(msgType);
 
-		if(messageHandler != null) {
+		if(messageHandler == null) {
 			messageHandler = defaultMessageHandler;
 		}
 		return messageHandler.handle();
