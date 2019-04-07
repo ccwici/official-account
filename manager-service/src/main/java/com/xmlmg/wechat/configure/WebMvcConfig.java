@@ -67,6 +67,7 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter implements WebMvc
                 .antMatchers("/v2/api-docs").permitAll()
                 .antMatchers("/configuration/ui").permitAll()
                 .antMatchers("/configuration/security").permitAll()
+                .antMatchers("/wechat.do").permitAll()
                 // swagger end
                 .anyRequest().authenticated()
                 .and().headers().cacheControl();
