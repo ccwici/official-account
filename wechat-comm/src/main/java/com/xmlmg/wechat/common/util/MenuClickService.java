@@ -1,4 +1,4 @@
-package com.xmlmg.wechat.service;
+package com.xmlmg.wechat.common.util;
 
 /**
  * 描述：菜单点击事件，处理

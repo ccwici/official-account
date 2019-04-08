@@ -1,15 +1,12 @@
 package com.xmlmg.wechat.common.util;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-
+@Slf4j
 public class SignUtil {
-    private static final Logger logger = LoggerFactory.getLogger(SignUtil.class);
-
     /**
      * 验证签名
      */
@@ -30,7 +27,7 @@ public class SignUtil {
             byte[] digest = md.digest(content.toString().getBytes());
             tmpStr = byteToStr(digest);
         } catch (NoSuchAlgorithmException e) {
-            logger.error(e.getMessage(), e);
+            log.error(e.getMessage(), e);
         }
         // 将sha1加密后的字符串可与signature对比，标识该请求来源于微信
         return tmpStr != null ? tmpStr.equals(signature.toUpperCase()) : false;

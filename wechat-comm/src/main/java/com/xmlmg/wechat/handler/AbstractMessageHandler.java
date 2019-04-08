@@ -1,4 +1,4 @@
-package com.xmlmg.wechat.service.chat;
+package com.xmlmg.wechat.handler;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +25,6 @@ public abstract class AbstractMessageHandler {
         // 消息内容
         this.content = requestMap.get("Content");
         // 从HashMap中取出消息中的字段；
-
         log.debug("fromUserName is:" +fromUserName+" toUserName is:" +toUserName+" msgType is:" +msgType);
     }
 

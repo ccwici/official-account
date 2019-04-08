@@ -1,6 +1,10 @@
 package com.xmlmg.wechat.service.chat;
 
 import com.xmlmg.wechat.common.util.MessageUtil;
+import com.xmlmg.wechat.handler.AbstractMessageHandler;
+import com.xmlmg.wechat.handler.DefaultMessageHandler;
+import com.xmlmg.wechat.handler.EventMessageHandler;
+import com.xmlmg.wechat.handler.TextMessageHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +29,7 @@ public class ChatService {
 	public String processRequest(HttpServletRequest request) throws Exception {
 		// xml请求解析
 		// 调用消息工具类MessageUtil解析微信发来的xml格式的消息，解析的结果放在HashMap里；
-		Map<String, String> requestMap = MessageUtil.parseXml(request);
+		Map<String, String> requestMap = MessageUtil.parseXml(request.getInputStream());
 		Map<String, AbstractMessageHandler> handlerMap = new HashMap<>();
 		// 消息类型
 		final String msgType = requestMap.get("MsgType");

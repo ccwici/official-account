@@ -1,7 +1,7 @@
-package com.xmlmg.wechat.service.chat;
+package com.xmlmg.wechat.handler;
 
 import com.xmlmg.wechat.common.robot.TulingApiProcess;
-import com.xmlmg.wechat.entity.MessageResponse;
+import com.xmlmg.wechat.common.util.MessageResponse;
 
 import java.util.Map;
 
