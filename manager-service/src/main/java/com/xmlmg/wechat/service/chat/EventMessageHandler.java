@@ -2,7 +2,7 @@ package com.xmlmg.wechat.service.chat;
 
 import com.xmlmg.wechat.entity.MessageResponse;
 import com.xmlmg.wechat.service.MenuClickService;
-import com.xmlmg.wechat.util.MessageUtil;
+import com.xmlmg.wechat.common.util.MessageUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;

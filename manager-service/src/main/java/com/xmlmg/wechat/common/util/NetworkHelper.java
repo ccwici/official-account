@@ -1,8 +1,7 @@
-package com.xmlmg.wechat.util;
+package com.xmlmg.wechat.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import com.xmlmg.wechat.entity.AccessToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

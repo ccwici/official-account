@@ -1,4 +1,4 @@
-package com.xmlmg.wechat.util;
+package com.xmlmg.wechat.common.util;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.core.util.QuickWriter;

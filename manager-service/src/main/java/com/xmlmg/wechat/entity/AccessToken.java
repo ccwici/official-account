@@ -1,6 +1,6 @@
 package com.xmlmg.wechat.entity;
 
-import com.xmlmg.wechat.util.NetworkHelper;
+import com.xmlmg.wechat.common.util.NetworkHelper;
 
 import java.io.IOException;
 

@@ -2,7 +2,7 @@ package com.xmlmg.wechat.service;
 
 import com.xmlmg.wechat.common.util.StringUtils;
 import com.xmlmg.wechat.entity.ErrorMessage;
-import com.xmlmg.wechat.util.NetworkHelper;
+import com.xmlmg.wechat.common.util.NetworkHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

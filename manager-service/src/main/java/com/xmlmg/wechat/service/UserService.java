@@ -1,9 +1,8 @@
 package com.xmlmg.wechat.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.xmlmg.wechat.entity.AccessToken;
 import com.xmlmg.wechat.entity.WechatUserInfo;
-import com.xmlmg.wechat.util.NetworkHelper;
+import com.xmlmg.wechat.common.util.NetworkHelper;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;

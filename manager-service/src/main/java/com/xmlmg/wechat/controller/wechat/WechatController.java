@@ -2,7 +2,7 @@ package com.xmlmg.wechat.controller.wechat;
 
 import com.xmlmg.wechat.common.controller.WechatBaseController;
 import com.xmlmg.wechat.service.chat.ChatService;
-import com.xmlmg.wechat.util.SignUtil;
+import com.xmlmg.wechat.common.util.SignUtil;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,9 +1,6 @@
 package com.xmlmg.wechat.service.chat;
 
-import com.xmlmg.wechat.entity.MessageResponse;
-import com.xmlmg.wechat.service.MenuClickService;
-import com.xmlmg.wechat.util.MessageUtil;
-import com.xmlmg.wechat.common.robot.TulingApiProcess;
+import com.xmlmg.wechat.common.util.MessageUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

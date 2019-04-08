@@ -1,6 +1,6 @@
 package com.xmlmg.wechat.entity;
 
-import com.xmlmg.wechat.util.MessageUtil;
+import com.xmlmg.wechat.common.util.MessageUtil;
 
 import java.util.Date;
 import java.util.List;
