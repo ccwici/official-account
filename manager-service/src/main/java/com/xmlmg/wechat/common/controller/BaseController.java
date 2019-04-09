@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * @version: 1.0
  */
 @Slf4j
-public class BaseController<T, ID, S extends IBaseService<T, ID>> {
+public class BaseController<T, ID, S extends IBaseService<T, ID>> { // NOSONAR
 
     @Autowired
     protected S baseService;

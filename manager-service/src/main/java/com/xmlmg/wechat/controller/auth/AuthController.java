@@ -1,14 +1,16 @@
 package com.xmlmg.wechat.controller.auth;
 
+import com.xmlmg.wechat.common.util.StringUtils;
 import com.xmlmg.wechat.entity.auth.SysUser;
 import com.xmlmg.wechat.service.ISysUserService;
 import com.xmlmg.wechat.vo.Result;
-import com.xmlmg.wechat.common.util.StringUtils;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.Map;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @describe：

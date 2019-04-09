@@ -32,7 +32,7 @@ public class MessagePublishService {
 
         //获取请求路径
         String action = "https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token=" + accessToken;
-        logger.debug("request message:{}" + json);
+        logger.debug("request message:{}", json);
         return (ErrorMessage) NetworkHelper.post(action, json, ErrorMessage.class);
     }
 

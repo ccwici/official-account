@@ -5,8 +5,7 @@ import com.xmlmg.wechat.handler.AbstractMessageHandler;
 import com.xmlmg.wechat.handler.DefaultMessageHandler;
 import com.xmlmg.wechat.handler.EventMessageHandler;
 import com.xmlmg.wechat.handler.TextMessageHandler;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Component
+@Slf4j
 public class ChatService {
-	private final Logger logger = LoggerFactory.getLogger(ChatService.class);
 
 	@Value("${public.account.subscription.welcome}")
 	private String subscriptionWelcome;

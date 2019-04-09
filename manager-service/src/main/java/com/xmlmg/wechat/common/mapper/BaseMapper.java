@@ -6,7 +6,7 @@ import java.util.List;
  * @describe： 通用  Mapper 接口
  * @version: 1.0
  */
-public interface BaseMapper<T, ID> {
+public interface BaseMapper<T, ID> { // NOSONAR
 
     int deleteByPrimaryKey(ID id);
 

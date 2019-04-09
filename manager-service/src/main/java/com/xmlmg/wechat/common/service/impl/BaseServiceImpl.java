@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @version: 1.0
  */
 
-public abstract class BaseServiceImpl<T, ID, M extends BaseMapper> implements IBaseService<T, ID> {
+public abstract class BaseServiceImpl<T, ID, M extends BaseMapper> implements IBaseService<T, ID> { // NOSONAR
     protected Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     @Autowired

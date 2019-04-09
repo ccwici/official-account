@@ -1,10 +1,8 @@
 package com.xmlmg.wechat.service;
 
-import com.xmlmg.wechat.common.exception.UserExistsException;
 import com.xmlmg.wechat.common.service.IBaseService;
 import com.xmlmg.wechat.entity.auth.SysUser;
 import com.xmlmg.wechat.vo.SysUserVo;
-import org.springframework.security.core.AuthenticationException;
 
 /**
  * <p>
@@ -31,7 +29,7 @@ public interface ISysUserService extends IBaseService<SysUser, String> {
      * @param password 密码
      * @return 操作结果
      */
-    String login(String username, String password) throws AuthenticationException;
+    String login(String username, String password);
 
     /**
      * 用户注册
@@ -39,7 +37,7 @@ public interface ISysUserService extends IBaseService<SysUser, String> {
      * @param sysUser 用户信息
      * @return 操作结果
      */
-    Integer register(SysUser sysUser) throws UserExistsException;
+    Integer register(SysUser sysUser);
 
     /**
      * 刷新密钥

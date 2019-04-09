@@ -76,7 +76,7 @@ public class JwtTokenUtil implements Serializable {
         String username;
         try {
             Claims claims = getClaimsFromToken(token);
-            username = claims.getSubject();
+            username = (claims == null ? null : claims.getSubject());
         } catch (Exception e) {
             username = null;
         }
@@ -90,13 +90,12 @@ public class JwtTokenUtil implements Serializable {
      * @return 是否过期
      */
     public Boolean isTokenExpired(String token) {
-        try {
-            Claims claims = getClaimsFromToken(token);
-            Date expiration = claims.getExpiration();
-            return expiration.before(new Date());
-        } catch (Exception e) {
+        Claims claims = getClaimsFromToken(token);
+        Date expirationTmp = (claims == null ? null : claims.getExpiration());
+        if(expirationTmp == null) {
             return false;
         }
+        return expirationTmp.before(new Date());
     }
 
     /**
@@ -107,13 +106,11 @@ public class JwtTokenUtil implements Serializable {
      */
     public String refreshToken(String token) {
         String refreshedToken;
-        try {
-            Claims claims = getClaimsFromToken(token);
+        Claims claims = getClaimsFromToken(token);
+        if(claims != null) {
             claims.put("created", new Date());
-            refreshedToken = generateToken(claims);
-        } catch (Exception e) {
-            refreshedToken = null;
         }
+        refreshedToken = generateToken(claims);
         return refreshedToken;
     }
 

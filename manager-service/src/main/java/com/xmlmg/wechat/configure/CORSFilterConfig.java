@@ -34,8 +34,8 @@ class CORSAFilter implements  Filter{
         this.url=url;
     }
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
+    public void init(FilterConfig filterConfig) {
+        //
     }
 
     @Override
@@ -60,13 +60,13 @@ class CORSAFilter implements  Filter{
         response.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, x-token");
         response.setHeader("Access-Control-Request-Headers", "Access-Control-Allow-Credentials，Access-Control-Allow-Origin, Access-Control-Allow-Headers");
         response.setHeader("Access-Control-Expose-Headers", "sessionstatus");
-        if(!((HttpServletRequest)servletRequest).getMethod().toLowerCase().equals("options")){//OPTIONS访问直接响应
+        if(!((HttpServletRequest)servletRequest).getMethod().equalsIgnoreCase("options")){//OPTIONS访问直接响应
             filterChain.doFilter(servletRequest, servletResponse);
         }
     }
 
     @Override
     public void destroy() {
-
+        //
     }
 }

@@ -27,7 +27,7 @@ public class JwtUserDetailsServiceImpl implements UserDetailsService {
     private SysUserMapper sysUserMapper;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         SysUser sysUser = sysUserMapper.selectByUserName(username);
         if (sysUser == null || StringUtils.isEmpty(sysUser.getUid())) {
             throw new UsernameNotFoundException(String.format("'%s'.这个用户不存在", username));

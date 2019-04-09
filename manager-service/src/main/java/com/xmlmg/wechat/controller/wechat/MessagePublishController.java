@@ -17,7 +17,6 @@ public class MessagePublishController extends WechatBaseController {
     @Autowired
     MessagePublishService messagePublishService;
 
-    //TODO 发送个人消息   整体推送消息
     @PostMapping(value="/personal/")
     public Result sendPersonalMessage(@RequestBody Map<String, String> map) throws IOException {
         String openid = map.get("openid");
@@ -36,7 +35,6 @@ public class MessagePublishController extends WechatBaseController {
 
     @PostMapping("/news/")
     public Result sendNewsMessage() {
-        // TODO
         return null;
     }
 }

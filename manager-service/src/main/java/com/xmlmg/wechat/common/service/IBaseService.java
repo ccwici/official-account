@@ -8,7 +8,7 @@ import com.xmlmg.wechat.vo.MyPage;
  * @describe：  通用service 接口
  * @version: 1.0
  */
-public interface IBaseService<T, ID> {
+public interface IBaseService<T, ID> { // NOSONAR
 
     int deleteByPrimaryKey(ID id);
 
