@@ -9,6 +9,7 @@ import com.xmlmg.wechat.entity.Article;
 import com.xmlmg.wechat.entity.NewsMessage;
 import com.xmlmg.wechat.entity.TextMessage;
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
@@ -62,16 +63,23 @@ public class MessageUtil {
     // 响应消息类型：图文
     public static final String RESP_MESSAGE_TYPE_NEWS = "news";
 
+    private MessageUtil() {
+        //
+    }
+
     private static XStream xstream = new XStream(new XppDriver() {
+        @Override
         public HierarchicalStreamWriter createWriter(Writer out) {
             return new PrettyPrintWriter(out) {
                 boolean cdata = true;
 
                 @SuppressWarnings("unchecked")
+                @Override
                 public void startNode(String name, Class clazz) {
                     super.startNode(name, clazz);
                 }
 
+                @Override
                 protected void writeText(QuickWriter writer, String text) {
                     if (cdata) {
                         writer.write("<![CDATA[");
@@ -85,9 +93,9 @@ public class MessageUtil {
         }
     });
 
-    public static Map<String, String> parseXml(InputStream inputStream) throws Exception {
+    public static Map<String, String> parseXml(InputStream inputStream) throws DocumentException {
         // 将解析结果存储在HashMap中
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String, String> map = new HashMap<>();
         // 读取输入流
         SAXReader reader = new SAXReader();
         Document document = reader.read(inputStream);
@@ -108,7 +116,7 @@ public class MessageUtil {
 
     public static String newsMessageToXml(NewsMessage newsMessage) {
         xstream.alias("xml", newsMessage.getClass());
-        xstream.alias("item", new Article().getClass());
+        xstream.alias("item", Article.class);
         return xstream.toXML(newsMessage);
     }
 

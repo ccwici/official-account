@@ -2,49 +2,49 @@ package com.xmlmg.wechat.entity;
 
 public class BaseMessage {
     
-    private String ToUserName;
-    private String FromUserName;
-    private long CreateTime;
-    private String MsgType;
-    private int FuncFlag;
+    private String toUserName;
+    private String fromUserName;
+    private long createTime;
+    private String msgType;
+    private int funcFlag;
   
     public String getToUserName() {  
-        return ToUserName;  
+        return toUserName;
     }  
   
     public void setToUserName(String toUserName) {  
-        ToUserName = toUserName;  
+        this.toUserName = toUserName;
     }  
   
     public String getFromUserName() {  
-        return FromUserName;  
+        return fromUserName;
     }  
   
     public void setFromUserName(String fromUserName) {  
-        FromUserName = fromUserName;  
+        this.fromUserName = fromUserName;
     }  
   
     public long getCreateTime() {  
-        return CreateTime;  
+        return createTime;
     }  
   
     public void setCreateTime(long createTime) {  
-        CreateTime = createTime;  
+        this.createTime = createTime;
     }  
   
     public String getMsgType() {  
-        return MsgType;  
+        return msgType;
     }  
   
     public void setMsgType(String msgType) {  
-        MsgType = msgType;  
+        this.msgType = msgType;
     }  
   
     public int getFuncFlag() {  
-        return FuncFlag;  
+        return funcFlag;
     }  
   
     public void setFuncFlag(int funcFlag) {  
-        FuncFlag = funcFlag;  
+        this.funcFlag = funcFlag;
     } 
 }

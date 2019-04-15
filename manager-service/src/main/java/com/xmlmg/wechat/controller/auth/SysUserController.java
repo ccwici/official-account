@@ -23,7 +23,7 @@ public class SysUserController extends BaseController<SysUser, String, ISysUserS
     public Result login(@RequestBody Map<String, String> request) {
         String username = request.get("username");
         String password = request.get("password");
-        if("admin".equals(username) && "admin".equals(password)) {
+        if("admin".equals(username) && "admin".equals(password)) { // NOSONAR
             return Result.success("登陆成功", "tokentokentoken");
         }
         return Result.error401("非法用户密码！", null);
@@ -35,7 +35,7 @@ public class SysUserController extends BaseController<SysUser, String, ISysUserS
     }
 
     @GetMapping("/info")
-    public Result<SysUserVo> info() {
+    public Result info() {
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         SysUserVo userInfo = baseService.findUserInfo(userDetails.getUsername());
         return Result.success(userInfo);

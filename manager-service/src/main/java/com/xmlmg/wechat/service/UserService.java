@@ -18,8 +18,7 @@ public class UserService {
      */
     private String getUsersFromWeixin(String accessToken, String nextOpenid) throws IOException {
         String action = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=" + accessToken + "&next_openid=" + nextOpenid;
-        String json = NetworkHelper.get(action);
-        return json;
+        return NetworkHelper.get(action);
     }
 
     public List<WechatUserInfo> getUserInfosFromWeinxin(String accessToken, String nextOpenid) throws IOException {
@@ -40,7 +39,6 @@ public class UserService {
 
     public WechatUserInfo getUserInfo(String accessToken, String openid) throws IOException {
         String action = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=" + accessToken + "&openid=" + openid;
-        WechatUserInfo userInfo = (WechatUserInfo)NetworkHelper.get(action, WechatUserInfo.class);
-        return userInfo;
+        return (WechatUserInfo)NetworkHelper.get(action, WechatUserInfo.class);
     }
 }

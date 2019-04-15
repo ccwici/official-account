@@ -5,18 +5,18 @@ import com.xmlmg.wechat.common.util.NetworkHelper;
 import java.io.IOException;
 
 public class AccessToken extends ErrorMessage {
-    private String accessToken;
+    private String token;
     private int expiresIn;
     private long expiresTime;
 
     private static AccessToken currentToken;
 
     public String getAccessToken() {
-        return accessToken;
+        return token;
     }
 
     public void setAccessToken(String accessToken) {
-        this.accessToken = accessToken;
+        this.token = accessToken;
     }
 
     public int getExpiresIn() {

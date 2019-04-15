@@ -73,7 +73,7 @@ public class SysUserVo {
     }
 
 
-    public SysUserVo(String uid, @URL(message = "头像地址格式不正确") String avatar,
+    public SysUserVo(String uid, @URL(message = "头像地址格式不正确") String avatar, // NOSONAR
                      @NotBlank(message = "昵称必须要填写") String nickname,
                      @NotBlank(message = "用户名必须要填写")
                      @Length(min = 5, max = 20, message = "用户名长度必须大于5位") String username,

@@ -7,13 +7,13 @@ public class WechatUserInfo extends ErrorMessage {
     /**
      * 值为0时，代表此用户没有关注该公众号，拉取不到其余信息。
      */
-    public int subscribe;
+    private int subscribe;
 
-    public String openid;
+    private String openid;
 
-    public String nickname;
+    private String nickname;
 
-    public long subscribe_time;
+    private long subscribe_time; // NOSONAR
 
     public int getSubscribe() {
         return subscribe;
@@ -39,11 +39,11 @@ public class WechatUserInfo extends ErrorMessage {
         this.nickname = nickname;
     }
 
-    public long getSubscribe_time() {
+    public long getSubscribe_time() { // NOSONAR
         return subscribe_time;
     }
 
-    public void setSubscribe_time(long subscribe_time) {
+    public void setSubscribe_time(long subscribe_time) { // NOSONAR
         this.subscribe_time = subscribe_time;
     }
 }

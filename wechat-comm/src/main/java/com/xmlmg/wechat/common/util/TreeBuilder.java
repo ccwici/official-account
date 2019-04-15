@@ -4,7 +4,6 @@ package com.xmlmg.wechat.common.util;
 import com.xmlmg.wechat.vo.MenuVo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -23,9 +22,9 @@ public class TreeBuilder {
                 root.add(node);
             }
         });
-        root.forEach(node -> {
-            findChildren(node, allNodes);
-        });
+        root.forEach(node ->
+            findChildren(node, allNodes)
+        );
         return root;
     }
 
@@ -46,5 +45,9 @@ public class TreeBuilder {
             }
         }
         return treeNode;
+    }
+
+    private TreeBuilder() {
+        //
     }
 }

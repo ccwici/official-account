@@ -2,8 +2,7 @@ package com.xmlmg.wechat.common.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,8 +10,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@Slf4j
 public class NetworkHelper {
-    private static final Logger logger = LoggerFactory.getLogger(NetworkHelper.class);
 
     public static Object get(String action, Class clz) throws IOException {
         String jsonStr = get(action);
@@ -38,12 +37,12 @@ public class NetworkHelper {
 
         http.setRequestProperty("Content-Type",
                 "application/x-www-form-urlencoded");
-        System.setProperty("sun.net.client.defaultConnectTimeout", "30000");// 连接超时30秒
-        System.setProperty("sun.net.client.defaultReadTimeout", "30000"); // 读取超时30秒
+        System.setProperty("sun.net.client.defaultConnectTimeout", "30000"); //NOSONAR
+        System.setProperty("sun.net.client.defaultReadTimeout", "30000"); // NOSONAR
         http.connect();
         InputStream is = http.getInputStream();
         result = readFromInputStream(is);
-        logger.debug("reply message:{}", result);
+        log.debug("reply message:{}", result);
         return result;
     }
 
@@ -66,7 +65,7 @@ public class NetworkHelper {
             os.write(data.getBytes("UTF-8"));// 传入参数
             InputStream is = http.getInputStream();
             result = readFromInputStream(is);
-            logger.debug("reply message:{}", result);
+            log.debug("reply message:{}", result);
         }
         return result;
     }
@@ -74,9 +73,12 @@ public class NetworkHelper {
     private static String readFromInputStream(InputStream is) throws IOException {
         int size = is.available();
         byte[] jsonBytes = new byte[size];
-        is.read(jsonBytes);
+        is.read(jsonBytes); // NOSONAR
 
         return new String(jsonBytes, "UTF-8");
     }
 
+    private NetworkHelper() {
+        //
+    }
 }

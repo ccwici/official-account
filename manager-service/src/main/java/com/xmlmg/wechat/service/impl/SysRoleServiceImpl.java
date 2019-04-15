@@ -7,6 +7,7 @@ import com.xmlmg.wechat.common.service.impl.BaseServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,7 +24,7 @@ public class SysRoleServiceImpl extends BaseServiceImpl<SysRole, Integer, SysRol
 
     @Override
     public Set<SysRole> selectByPrimaryKeyCollection(List<Integer> ids) {
-        return null;
+        return new HashSet<>();
     }
 
     @Override

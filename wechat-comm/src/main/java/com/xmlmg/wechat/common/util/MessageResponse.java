@@ -1,6 +1,5 @@
 package com.xmlmg.wechat.common.util;
 
-import com.xmlmg.wechat.common.util.MessageUtil;
 import com.xmlmg.wechat.entity.Article;
 import com.xmlmg.wechat.entity.NewsMessage;
 import com.xmlmg.wechat.entity.TextMessage;
@@ -9,7 +8,11 @@ import java.util.Date;
 import java.util.List;
 
 public class MessageResponse {
-    
+
+    private MessageResponse() {
+        //
+    }
+
     /**
      * 回复文本消息
      */

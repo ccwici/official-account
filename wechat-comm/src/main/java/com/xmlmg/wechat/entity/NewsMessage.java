@@ -10,23 +10,23 @@ import java.util.List;
 public class NewsMessage extends BaseMessage {
     
     // 图文消息个数，限制为10条以�?
-    private int ArticleCount;  
+    private int articleCount;
     // 多条图文消息信息，默认第1条为大图
-    private List<Article> Articles;  
+    private List<Article> articles;
   
     public int getArticleCount() {  
-        return ArticleCount;  
+        return articleCount;
     }  
   
     public void setArticleCount(int articleCount) {  
-        ArticleCount = articleCount;  
+        this.articleCount = articleCount;
     }  
   
     public List<Article> getArticles() {  
-        return Articles;  
+        return articles;
     }  
   
     public void setArticles(List<Article> articles) {  
-        Articles = articles;  
+        this.articles = articles;
     }
 }

@@ -2,13 +2,13 @@ package com.xmlmg.wechat.entity;
 
 public class TextMessage extends BaseMessage {
     
-    private String Content;
+    private String content;
   
     public String getContent() {  
-        return Content;  
+        return content;
     }  
   
     public void setContent(String content) {  
-        Content = content;  
+        this.content = content;
     }   
 }

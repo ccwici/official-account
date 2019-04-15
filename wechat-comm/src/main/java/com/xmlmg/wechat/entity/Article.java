@@ -18,7 +18,7 @@ public class Article {
     }  
   
     public void setTitle(String title) {  
-        title = title;
+        this.title = title;
     }  
   
     public String getDescription() {  
@@ -26,7 +26,7 @@ public class Article {
     }  
   
     public void setDescription(String description) {  
-        description = description;
+        this.description = description;
     }  
   
     public String getPicUrl() {  
@@ -34,7 +34,7 @@ public class Article {
     }  
   
     public void setPicUrl(String picUrl) {  
-        picUrl = picUrl;
+        this.picUrl = picUrl;
     }  
   
     public String getUrl() {  
@@ -42,6 +42,6 @@ public class Article {
     }  
   
     public void setUrl(String url) {  
-        url = url;
+        this.url = url;
     } 
 }

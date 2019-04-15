@@ -9,9 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,7 +26,7 @@ public class WechatController extends WechatBaseController {
     /**
      * 微信消息接收和token验证
      */
-    @RequestMapping(value = "/wechat.do", method = RequestMethod.GET)
+    @GetMapping(value = "/wechat.do")
     public void weChat(Model model, HttpServletRequest request,HttpServletResponse response) throws IOException {
         // 微信加密签名
         String signature = request.getParameter(WX_SIGNATURE);
@@ -56,7 +54,7 @@ public class WechatController extends WechatBaseController {
         }
     }
 
-    @RequestMapping(value = "/wechat.do", method = RequestMethod.POST)
+    @PostMapping(value = "/wechat.do")
     @ResponseBody
     public void getWeiXinMessage(HttpServletRequest request, HttpServletResponse response) throws Exception
     {

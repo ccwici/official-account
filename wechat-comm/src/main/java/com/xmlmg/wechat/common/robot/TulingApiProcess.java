@@ -29,13 +29,13 @@ public class TulingApiProcess {
      */
     public static String getTulingResult(String content) {
         //图灵机器人数据库接口
-        String APIKEY = "438cc658c632496fa4dc33511cb2674d";
-        StringBuffer sb = new StringBuffer();
+        final String APIKEY = "438cc658c632496fa4dc33511cb2674d";
+        StringBuilder sb = new StringBuilder();
         String result = "";
         try {
-            String INFO = URLEncoder.encode(content, "utf-8");
+            String info = URLEncoder.encode(content, "utf-8");
             String getURL = "http://www.tuling123.com/openapi/api?key="
-                    + APIKEY + "&info=" + INFO;
+                    + APIKEY + "&info=" + info;
             URL getUrl = new URL(getURL);
             HttpURLConnection connection = (HttpURLConnection) getUrl
                     .openConnection();
@@ -60,5 +60,9 @@ public class TulingApiProcess {
             logger.error(e.getMessage(), e);
         }
         return result;
+    }
+
+    private TulingApiProcess() {
+        //
     }
 }

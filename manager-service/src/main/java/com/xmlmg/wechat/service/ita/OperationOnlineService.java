@@ -29,6 +29,6 @@ public class OperationOnlineService extends BaseServiceImpl<OperationSetting, St
     }
 
     public String executeTargetOperation(OperationSetting operationSetting) {
-        return "API，待开发...";
+        return operationSetting.getApi();
     }
 }

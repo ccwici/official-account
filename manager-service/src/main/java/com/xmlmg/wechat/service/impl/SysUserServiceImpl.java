@@ -42,7 +42,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String, SysUser
     private ISysRoleService sysRoleService;
 
     @Override
-    public SysUser findByUsername(String username) throws UsernameNotFoundException {
+    public SysUser findByUsername(String username) {
         if (StringUtils.isEmpty(username)) {
             throw new UsernameNotFoundException("用户名不可以为空!");
         }
@@ -64,13 +64,13 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String, SysUser
         sysRoles.forEach(role -> {
             logger.info("role: {}", role.getDescribe());
             role.getPermissions().forEach(permission -> {
-                if (permission.getType().toLowerCase().equals("button")) {
+                if (permission.getType().equalsIgnoreCase("button")) {
                     /*
                     * 如果权限是按钮，就添加到按钮里面
                     * */
                     buttonVos.add(new ButtonVo(permission.getPid(), permission.getResources(), permission.getTitle()));
                 }
-                if (permission.getType().toLowerCase().equals("menu")) {
+                if (permission.getType().equalsIgnoreCase("menu")) {
                     /*
                     * 如果权限是菜单，就添加到菜单里面
                     * */
@@ -79,12 +79,10 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String, SysUser
             });
         });
 
-        SysUserVo sysUserVo =
-                new SysUserVo(sysUser.getUid(), sysUser.getAvatar(),
+        return new SysUserVo(sysUser.getUid(), sysUser.getAvatar(),
                         sysUser.getNickname(), sysUser.getUsername(),
                         sysUser.getMail(), sysUser.getAddTime(),
                         sysUser.getRoles(), buttonVos, TreeBuilder.findRoots(menuVos));
-        return sysUserVo;
     }
 
     @Autowired
@@ -109,7 +107,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String, SysUser
     }
 
     @Override
-    public Integer register(SysUser sysUser) throws UserExistsException {
+    public Integer register(SysUser sysUser) {
         String username = sysUser.getUsername();
         if (findByUsername(username) != null) {
             throw new UserExistsException(String.format("'%s' 这个用用户已经存在了", username));
