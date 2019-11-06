@@ -6,9 +6,9 @@ import org.springframework.security.core.AuthenticationException;
  * @describe：
  * @version: 1.0
  */
-public class UserExistsException extends AuthenticationException {
+public class UserNotExistsException extends AuthenticationException {
 
-    public UserExistsException(String msg) {
+    public UserNotExistsException(String msg) {
         super(msg);
     }
 

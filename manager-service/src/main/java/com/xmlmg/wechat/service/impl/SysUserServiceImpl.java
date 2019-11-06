@@ -1,5 +1,10 @@
 package com.xmlmg.wechat.service.impl;
 
+import com.xmlmg.wechat.common.exception.UserNotExistsException;
+import com.xmlmg.wechat.common.jwt.JwtTokenUtil;
+import com.xmlmg.wechat.common.service.impl.BaseServiceImpl;
+import com.xmlmg.wechat.common.util.StringUtils;
+import com.xmlmg.wechat.common.util.TreeBuilder;
 import com.xmlmg.wechat.entity.auth.SysRole;
 import com.xmlmg.wechat.entity.auth.SysUser;
 import com.xmlmg.wechat.mapper.SysUserMapper;
@@ -8,11 +13,6 @@ import com.xmlmg.wechat.service.ISysUserService;
 import com.xmlmg.wechat.vo.ButtonVo;
 import com.xmlmg.wechat.vo.MenuVo;
 import com.xmlmg.wechat.vo.SysUserVo;
-import com.xmlmg.wechat.common.exception.UserExistsException;
-import com.xmlmg.wechat.common.jwt.JwtTokenUtil;
-import com.xmlmg.wechat.common.service.impl.BaseServiceImpl;
-import com.xmlmg.wechat.common.util.StringUtils;
-import com.xmlmg.wechat.common.util.TreeBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -110,7 +110,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser, String, SysUser
     public Integer register(SysUser sysUser) {
         String username = sysUser.getUsername();
         if (findByUsername(username) != null) {
-            throw new UserExistsException(String.format("'%s' 这个用用户已经存在了", username));
+            throw new UserNotExistsException(String.format("'%s' 这个用用户已经存在了", username));
         }
         String rawPassword = sysUser.getPassword();
         sysUser.setPassword(passwordEncoder.encode(rawPassword));
