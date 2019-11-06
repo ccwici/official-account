@@ -25,7 +25,7 @@ public class AuthController {
 
     @PostMapping(value = "${jwt.route.login}")
     @ApiOperation("登录")
-    public Result<String> login(@RequestBody SysUser sysUser) {
+    public Result login(@RequestBody SysUser sysUser) {
         String username = sysUser.getUsername();
         String password = sysUser.getPassword();
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)) {
@@ -36,7 +36,7 @@ public class AuthController {
 
     @ApiOperation("刷新token")
     @PostMapping(value = "${jwt.route.refresh}")
-    public Result<String> refresh(@RequestHeader("${jwt.header}") String token) {
+    public Result refresh(@RequestHeader("${jwt.header}") String token) {
         return Result.success("刷新token成功!", sysUserService.refreshToken(token));
     }
 
