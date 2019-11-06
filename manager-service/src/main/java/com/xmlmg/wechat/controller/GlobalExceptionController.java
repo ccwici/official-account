@@ -83,7 +83,7 @@ public class GlobalExceptionController {
     // 捕捉其他所有异常
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public Result<String> globalException(HttpServletRequest request, Exception e) {
+    public Result globalException(HttpServletRequest request, Exception e) {
         log.error(e.getMessage(), e);
         return Result.error(getStatus(request).value(), e.getMessage(), e.getCause().toString());
     }
